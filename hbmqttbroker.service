@@ -1,0 +1,15 @@
+#installed on debian 8.8 jessie on beaglebone black
+#using systemd to start after user space is loaded
+#paths may vary, python3.4+ is required
+
+[Unit]
+Description=HBMQTT Broker service for ROSE data logging
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/bin/python3.5 /home/debian/hbmqttbroker/broker.py
+StandardOutput=null
+Type=simple
+
+[Install]
+Alias=hbmqttbroker.service
